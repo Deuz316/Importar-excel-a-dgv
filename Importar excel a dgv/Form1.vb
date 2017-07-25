@@ -66,7 +66,6 @@ Public Class Form1
             Dim NRow As Integer = ElGrid.RowCount
             For i As Integer = 1 To NCol
                 exHoja.Cells.Item(1, i) = ElGrid.Columns(i - 1).Name.ToString
-                'exHoja.Cells.Item(1, i).HorizontalAlignment = 3
             Next
 
             For Fila As Integer = 0 To NRow - 1
@@ -75,9 +74,7 @@ Public Class Form1
                 Next
             Next
             exHoja.Rows.Item(1).Font.Bold = 1
-            exHoja.Rows.Item(1).HorizontalAlignment = 3
             exHoja.Columns.AutoFit()
-
             exApp.Application.Visible = True
             exHoja = Nothing
             exLibro = Nothing
@@ -90,9 +87,12 @@ Public Class Form1
     End Function
     Private Sub ExportarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportarToolStripMenuItem.Click
         Try
-            GridAExcel(Me.detalle)
+            If Me.detalle.RowCount <> 0 Then
+                GridAExcel(Me.detalle)
+            Else
+                MessageBox.Show("Lo sentimos, aparentemente no existen datos que importar", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
         Catch ex As Exception
-            MessageBox.Show("Lo sentimos, aparentemente no existen datos que importar", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
     End Sub
 End Class

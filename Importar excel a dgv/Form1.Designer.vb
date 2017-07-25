@@ -25,11 +25,11 @@ Partial Class Form1
         Me.detalle = New System.Windows.Forms.DataGridView()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ImportarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExportarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ExportarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.detalle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
@@ -39,11 +39,15 @@ Partial Class Form1
         '
         Me.detalle.AllowUserToAddRows = False
         Me.detalle.AllowUserToDeleteRows = False
+        Me.detalle.AllowUserToResizeColumns = False
+        Me.detalle.AllowUserToResizeRows = False
         Me.detalle.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.detalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.detalle.BackgroundColor = System.Drawing.SystemColors.Info
         Me.detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.detalle.GridColor = System.Drawing.SystemColors.Info
         Me.detalle.Location = New System.Drawing.Point(12, 29)
         Me.detalle.Name = "detalle"
         Me.detalle.ReadOnly = True
@@ -66,6 +70,12 @@ Partial Class Form1
         Me.ImportarToolStripMenuItem.Name = "ImportarToolStripMenuItem"
         Me.ImportarToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ImportarToolStripMenuItem.Text = "&Importar"
+        '
+        'ExportarToolStripMenuItem
+        '
+        Me.ExportarToolStripMenuItem.Name = "ExportarToolStripMenuItem"
+        Me.ExportarToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
+        Me.ExportarToolStripMenuItem.Text = "&Exportar"
         '
         'OpenFileDialog1
         '
@@ -91,12 +101,6 @@ Partial Class Form1
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
         Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(120, 17)
         Me.ToolStripStatusLabel2.Text = "ToolStripStatusLabel2"
-        '
-        'ExportarToolStripMenuItem
-        '
-        Me.ExportarToolStripMenuItem.Name = "ExportarToolStripMenuItem"
-        Me.ExportarToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
-        Me.ExportarToolStripMenuItem.Text = "&Exportar"
         '
         'Form1
         '
