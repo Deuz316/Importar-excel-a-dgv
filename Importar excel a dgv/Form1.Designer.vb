@@ -30,6 +30,7 @@ Partial Class Form1
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.GuardarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.detalle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
@@ -48,17 +49,17 @@ Partial Class Form1
         Me.detalle.BackgroundColor = System.Drawing.SystemColors.Info
         Me.detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.detalle.GridColor = System.Drawing.SystemColors.Info
-        Me.detalle.Location = New System.Drawing.Point(12, 29)
+        Me.detalle.Location = New System.Drawing.Point(12, 27)
         Me.detalle.Name = "detalle"
         Me.detalle.ReadOnly = True
         Me.detalle.RowHeadersVisible = False
         Me.detalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.detalle.Size = New System.Drawing.Size(760, 509)
+        Me.detalle.Size = New System.Drawing.Size(760, 511)
         Me.detalle.TabIndex = 0
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportarToolStripMenuItem, Me.ExportarToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportarToolStripMenuItem, Me.ExportarToolStripMenuItem, Me.GuardarToolStripMenuItem1})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(784, 24)
@@ -99,8 +100,14 @@ Partial Class Form1
         'ToolStripStatusLabel2
         '
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(120, 17)
-        Me.ToolStripStatusLabel2.Text = "ToolStripStatusLabel2"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(12, 17)
+        Me.ToolStripStatusLabel2.Text = "-"
+        '
+        'GuardarToolStripMenuItem1
+        '
+        Me.GuardarToolStripMenuItem1.Name = "GuardarToolStripMenuItem1"
+        Me.GuardarToolStripMenuItem1.Size = New System.Drawing.Size(61, 20)
+        Me.GuardarToolStripMenuItem1.Text = "Guardar"
         '
         'Form1
         '
@@ -133,4 +140,5 @@ Partial Class Form1
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
     Friend WithEvents ExportarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GuardarToolStripMenuItem1 As ToolStripMenuItem
 End Class

@@ -1,7 +1,9 @@
 ﻿Imports System.Data.OleDb
 Imports Microsoft.Office.Interop
+Imports System.Data.SqlClient
 
 Public Class Form1
+    Dim server = "Data Source='192.168.10.2';Initial Catalog=Ventas;Persist Security Info=True;User ID=sa;Password=SO.DEBDC"
     Private Sub ImportarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarToolStripMenuItem.Click
         Dim openFD As New OpenFileDialog()
         With openFD
@@ -94,5 +96,32 @@ Public Class Form1
             End If
         Catch ex As Exception
         End Try
+    End Sub
+    Public Function Recorrer_DGV(grid As DataGridView) As Boolean
+        Try
+            Recorrer_DGV = True
+            Using cnn = New SqlConnection(server)
+                cnn.Open()
+                Dim sql As String = "Insert Into Tc (Fecha, Tco, Compra, Venta) VALUES (@FECHA, @TCO, @COMPRA, @VENTA)"
+                Dim command As New SqlCommand(sql, cnn)
+                For Each row As DataGridViewRow In grid.Rows
+                    command.Parameters.Clear()
+                    command.Parameters.AddWithValue("@Fecha", Convert.ToDateTime(row.Cells("Fecha").Value))
+                    command.Parameters.AddWithValue("@Tco", Convert.ToDecimal(row.Cells("Tco").Value))
+                    command.Parameters.AddWithValue("@Compra", Convert.ToDecimal(row.Cells("Compra").Value))
+                    command.Parameters.AddWithValue("@Venta", Convert.ToDecimal(row.Cells("Venta").Value))
+                    command.ExecuteNonQuery()
+                Next
+                cnn.Close()
+                MessageBox.Show("Documento guardado exitosamente", "Informacion")
+            End Using
+        Catch ex As Exception
+            Recorrer_DGV = False
+            MsgBox(ex.Message)
+        End Try
+        Return Recorrer_DGV
+    End Function
+    Private Sub GuardarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem1.Click
+        Recorrer_DGV(Me.detalle)
     End Sub
 End Class
